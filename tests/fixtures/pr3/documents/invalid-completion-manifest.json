@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "subject": "commit:abc123",
+  "status": "closed",
+  "requirements": [],
+  "prohibited_actions": [],
+  "stop_conditions": [],
+  "approval_boundaries": []
+}

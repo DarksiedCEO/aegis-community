@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "role_id": "test-authenticity-guardian",
+  "capability_id": "test-authenticity",
+  "subject": "commit:abc123",
+  "status": "verified",
+  "truth_label": "REPRODUCED",
+  "evidence_level": "E3",
+  "findings": [],
+  "authority": [],
+  "prohibited_actions": [],
+  "stop_conditions": [],
+  "handoff": {}
+}

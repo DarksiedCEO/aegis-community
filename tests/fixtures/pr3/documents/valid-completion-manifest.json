@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "subject": "commit:abc123",
+  "status": "implemented_not_verified",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "owner": "project-manager",
+      "acceptance_criteria": "Every work package has one owner.",
+      "required_evidence_level": "E3",
+      "status": "implemented_not_verified",
+      "evidence_references": []
+    }
+  ],
+  "prohibited_actions": ["self-certification"],
+  "stop_conditions": ["candidate revision changes"],
+  "approval_boundaries": ["Andre approves merge and release"]
+}

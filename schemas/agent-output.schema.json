@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-community.example/schemas/agent-output.schema.json",
+  "title": "AEGIS agent output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "registry_version",
+    "role_id",
+    "capability_id",
+    "subject",
+    "status",
+    "truth_label",
+    "evidence_level",
+    "findings",
+    "authority",
+    "prohibited_actions",
+    "stop_conditions",
+    "handoff"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "registry_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "role_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "capability_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "subject": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["planned", "blocked", "in_progress", "implemented_not_verified", "verified", "closed"]
+    },
+    "truth_label": {
+      "enum": ["ASSERTED", "OBSERVED", "REPRODUCED", "INDEPENDENTLY_REPRODUCED", "ATTESTED", "UNVERIFIED"]
+    },
+    "evidence_level": {"enum": ["E0", "E1", "E2", "E3", "E4", "E5"]},
+    "findings": {"type": "array", "items": {"type": "string"}},
+    "authority": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "prohibited_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "stop_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "handoff": {"$ref": "handoff.schema.json"},
+    "extensions": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"}
+    }
+  }
+}

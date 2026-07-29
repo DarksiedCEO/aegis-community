@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "handoff_id": "handoff-001",
+  "source_role": "project-manager",
+  "target_role": "completion-controller",
+  "subject": "repo@example",
+  "status": "implemented_not_verified",
+  "artifacts": ["artifact-001"],
+  "evidence": [],
+  "warnings": ["Independent validation remains required."],
+  "unresolved_risks": [],
+  "next_required_action": "Run independent validation.",
+  "approval_required": false,
+  "extensions": {"example.trace_id": "trace-001"}
+}

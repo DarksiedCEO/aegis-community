@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-community.example/schemas/registry.schema.json",
+  "title": "AEGIS canonical registry",
+  "oneOf": [
+    {"$ref": "#/$defs/agentRegistry"},
+    {"$ref": "#/$defs/capabilityRegistry"},
+    {"$ref": "#/$defs/authorityMatrix"}
+  ],
+  "$defs": {
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "agentRegistry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "registry_version", "roles"],
+      "properties": {
+        "schema_version": {"$ref": "#/$defs/version"},
+        "registry_version": {"$ref": "#/$defs/version"},
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "contract", "class", "primary_responsibility", "may_certify"],
+            "properties": {
+              "id": {"$ref": "#/$defs/id"},
+              "contract": {"type": "string", "minLength": 1},
+              "class": {"enum": ["assistant", "control", "independent-authority"]},
+              "primary_responsibility": {"type": "string", "minLength": 1},
+              "may_certify": {"type": "boolean"}
+            }
+          }
+        }
+      }
+    },
+    "capabilityRegistry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "registry_version", "capabilities"],
+      "properties": {
+        "schema_version": {"$ref": "#/$defs/version"},
+        "registry_version": {"$ref": "#/$defs/version"},
+        "capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "owner", "aliases"],
+            "properties": {
+              "id": {"$ref": "#/$defs/id"},
+              "owner": {"$ref": "#/$defs/id"},
+              "aliases": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1},
+                "uniqueItems": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "authorityMatrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "registry_version", "human_authority", "roles", "forbidden_combinations"],
+      "properties": {
+        "schema_version": {"$ref": "#/$defs/version"},
+        "registry_version": {"$ref": "#/$defs/version"},
+        "human_authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "exclusive_actions"],
+          "properties": {
+            "id": {"type": "string", "const": "andre"},
+            "exclusive_actions": {
+              "type": "array",
+              "minItems": 6,
+              "items": {"type": "string"},
+              "uniqueItems": true
+            }
+          }
+        },
+        "roles": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["implement", "validate", "certify", "sign"],
+            "properties": {
+              "implement": {"type": "boolean"},
+              "validate": {"type": "boolean"},
+              "certify": {"type": "boolean"},
+              "sign": {"type": "boolean"}
+            }
+          }
+        },
+        "forbidden_combinations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-community.example/schemas/completion-manifest.schema.json",
+  "title": "AEGIS completion manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "registry_version",
+    "subject",
+    "status",
+    "requirements",
+    "prohibited_actions",
+    "stop_conditions",
+    "approval_boundaries"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "registry_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "subject": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["planned", "blocked", "in_progress", "implemented_not_verified", "verified", "closed"]
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "owner", "acceptance_criteria", "required_evidence_level", "status"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "owner": {"type": "string", "minLength": 1},
+          "acceptance_criteria": {"type": "string", "minLength": 1},
+          "required_evidence_level": {"enum": ["E0", "E1", "E2", "E3", "E4", "E5"]},
+          "status": {
+            "enum": ["planned", "blocked", "in_progress", "implemented_not_verified", "verified", "closed"]
+          },
+          "evidence_references": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "prohibited_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "stop_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "approval_boundaries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aegis-community.example/schemas/handoff.schema.json",
+  "title": "AEGIS role handoff",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "registry_version",
+    "handoff_id",
+    "source_role",
+    "target_role",
+    "subject",
+    "status",
+    "artifacts",
+    "evidence",
+    "warnings",
+    "unresolved_risks",
+    "next_required_action",
+    "approval_required"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "registry_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "handoff_id": {"type": "string", "minLength": 1},
+    "source_role": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "target_role": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "subject": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["planned", "blocked", "in_progress", "implemented_not_verified", "verified", "closed"]
+    },
+    "artifacts": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "evidence": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "unresolved_risks": {"type": "array", "items": {"type": "string"}},
+    "next_required_action": {"type": "string", "minLength": 1},
+    "approval_required": {"type": "boolean"},
+    "extensions": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"}
+    }
+  }
+}

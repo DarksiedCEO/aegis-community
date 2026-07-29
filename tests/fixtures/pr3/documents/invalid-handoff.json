@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "handoff_id": "handoff-001",
+  "source_role": "project-manager",
+  "subject": "repo@example",
+  "status": "done",
+  "artifacts": [],
+  "evidence": [],
+  "warnings": [],
+  "unresolved_risks": [],
+  "next_required_action": "",
+  "approval_required": "no"
+}
