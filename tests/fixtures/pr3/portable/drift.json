@@ -1,0 +1,10 @@
+{
+  "files": {
+    "canonical": "E0 E1 E2 E3 E4 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED UNVERIFIED AEGIS does not implement implementer  ≠  validator",
+    "codex": "E0 E1 E2 E3 E4 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED UNVERIFIED no self-certification",
+    "chatgpt": "E0 E1 E2 E3 E4 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE UNVERIFIED implementer ≠ validator",
+    "claude-command": "E0 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED UNVERIFIED",
+    "claude-rules": "no self-certification",
+    "install": "aegis/SKILL.md portable/AGENTS.md portable/AEGIS_CHATGPT_PROJECT_INSTRUCTIONS.md"
+  }
+}

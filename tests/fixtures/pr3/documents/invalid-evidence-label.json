@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "role_id": "evidence-truth-guardian",
+  "subject": "commit:abc123",
+  "claim": "Unsupported claim.",
+  "evidence_level": "E7",
+  "truth_label": "CERTAIN",
+  "producer": "unknown",
+  "observed_at": "not-a-date",
+  "gaps": []
+}

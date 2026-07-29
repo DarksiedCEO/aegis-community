@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "role_id": "test-authenticity-guardian",
+  "capability_id": "test-authenticity",
+  "subject": "commit:abc123",
+  "status": "verified",
+  "truth_label": "REPRODUCED",
+  "evidence_level": "E3",
+  "findings": [],
+  "authority": ["validate_test_authenticity"],
+  "prohibited_actions": ["certify"],
+  "stop_conditions": ["candidate revision changes"],
+  "handoff": {
+    "schema_version": "1.0.0",
+    "registry_version": "1.0.0",
+    "handoff_id": "handoff-002",
+    "source_role": "test-authenticity-guardian",
+    "target_role": "completion-controller",
+    "subject": "commit:abc123",
+    "status": "verified",
+    "artifacts": [],
+    "evidence": ["evidence:test-output"],
+    "warnings": [],
+    "unresolved_risks": [],
+    "next_required_action": "Evaluate completion requirements.",
+    "approval_required": false
+  },
+  "extensions": {"example.trace_id": "trace-002"}
+}
