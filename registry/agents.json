@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "roles": [
+    {
+      "id": "project-manager",
+      "contract": "agents/project-manager.md",
+      "class": "assistant",
+      "primary_responsibility": "Coordinate approved work into owned dependency-ordered packages.",
+      "may_certify": false
+    },
+    {
+      "id": "blueprint-compiler",
+      "contract": "agents/blueprint-compiler.md",
+      "class": "assistant",
+      "primary_responsibility": "Compile approved sources into deterministic completion contracts.",
+      "may_certify": false
+    },
+    {
+      "id": "completion-controller",
+      "contract": "agents/completion-controller.md",
+      "class": "control",
+      "primary_responsibility": "Evaluate requirement closure against attributable evidence.",
+      "may_certify": false
+    },
+    {
+      "id": "drift-sentinel",
+      "contract": "agents/drift-sentinel.md",
+      "class": "control",
+      "primary_responsibility": "Detect divergence from approved sources and synchronization invariants.",
+      "may_certify": false
+    },
+    {
+      "id": "repository-integrity-guardian",
+      "contract": "agents/repository-integrity-guardian.md",
+      "class": "control",
+      "primary_responsibility": "Bind repository claims and operations to exact local and remote subjects.",
+      "may_certify": false
+    },
+    {
+      "id": "test-authenticity-guardian",
+      "contract": "agents/test-authenticity-guardian.md",
+      "class": "control",
+      "primary_responsibility": "Determine whether tests genuinely exercise the claimed behavior.",
+      "may_certify": false
+    },
+    {
+      "id": "evidence-truth-guardian",
+      "contract": "agents/evidence-truth-guardian.md",
+      "class": "control",
+      "primary_responsibility": "Grade claims by evidence level and enforce truthful status language.",
+      "may_certify": false
+    },
+    {
+      "id": "aegis",
+      "contract": "aegis/SKILL.md",
+      "class": "independent-authority",
+      "primary_responsibility": "Issue independent evidence-based assessment verdicts.",
+      "may_certify": true
+    }
+  ]
+}

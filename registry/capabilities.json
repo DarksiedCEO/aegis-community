@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "capabilities": [
+    {"id": "work-coordination", "owner": "project-manager", "aliases": ["project-control", "work-sequencing"]},
+    {"id": "blueprint-compilation", "owner": "blueprint-compiler", "aliases": ["requirements-compilation"]},
+    {"id": "completion-control", "owner": "completion-controller", "aliases": ["completion-assurance"]},
+    {"id": "drift-detection", "owner": "drift-sentinel", "aliases": ["source-conformance"]},
+    {"id": "repository-integrity", "owner": "repository-integrity-guardian", "aliases": ["exact-sha-discipline"]},
+    {"id": "test-authenticity", "owner": "test-authenticity-guardian", "aliases": ["anti-fake-green-testing"]},
+    {"id": "evidence-truth-labeling", "owner": "evidence-truth-guardian", "aliases": ["evidence-grading"]},
+    {"id": "independent-assessment", "owner": "aegis", "aliases": ["certification"]}
+  ]
+}

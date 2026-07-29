@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "human_authority": {
+    "id": "andre",
+    "exclusive_actions": [
+      "scope_approval",
+      "merge_approval",
+      "release_approval",
+      "destructive_action_approval",
+      "external_write_approval",
+      "final_approval"
+    ]
+  },
+  "roles": {
+    "project-manager": {"implement": false, "validate": false, "certify": false, "sign": false},
+    "blueprint-compiler": {"implement": false, "validate": false, "certify": false, "sign": false},
+    "completion-controller": {"implement": false, "validate": true, "certify": false, "sign": false},
+    "drift-sentinel": {"implement": false, "validate": true, "certify": false, "sign": false},
+    "repository-integrity-guardian": {"implement": false, "validate": true, "certify": false, "sign": false},
+    "test-authenticity-guardian": {"implement": false, "validate": true, "certify": false, "sign": false},
+    "evidence-truth-guardian": {"implement": false, "validate": true, "certify": false, "sign": false},
+    "aegis": {"implement": false, "validate": true, "certify": true, "sign": false}
+  },
+  "forbidden_combinations": [
+    ["implementer", "validator", "same_candidate"],
+    ["implementer", "certifier", "same_candidate"],
+    ["evidence_producer", "certifier", "same_candidate"]
+  ]
+}
