@@ -2,10 +2,10 @@
   "files": {
     "canonical": "E0 E1 E2 E3 E4 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED UNVERIFIED AEGIS does not implement implementer  ≠  validator",
     "codex": "E0 E1 E2 E3 E4 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED UNVERIFIED no self-certification",
-    "chatgpt": "E0 E1 E2 E3 E4 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE UNVERIFIED implementer ≠ validator",
+    "chatgpt": "E0 E1 E2 E3 E4 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED UNVERIFIED implementer ≠ validator",
     "claude-command": "E0 E5 CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED UNVERIFIED",
     "claude-rules": "no self-certification",
     "install": "aegis/SKILL.md portable/AGENTS.md portable/AEGIS_CHATGPT_PROJECT_INSTRUCTIONS.md portable/AEGIS_OPERATING_TEAM.md",
-    "operating-team": "project-manager blueprint-compiler completion-controller drift-sentinel repository-integrity-guardian test-authenticity-guardian evidence-truth-guardian aegis E0 E1 E2 E3 E4 E5 ASSERTED OBSERVED REPRODUCED INDEPENDENTLY_REPRODUCED ATTESTED UNVERIFIED CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED scope merge release destructive-action external-write final approval"
+    "operating-team": "project-manager blueprint-compiler completion-controller drift-sentinel repository-integrity-guardian test-authenticity-guardian evidence-truth-guardian aegis E0 E1 E2 E3 E4 E5 ASSERTED OBSERVED REPRODUCED INDEPENDENTLY_REPRODUCED ATTESTED UNVERIFIED CERTIFIED CONDITIONAL NOT_CERTIFIED INSUFFICIENT_EVIDENCE REFUSED scope merge release destructive-action external-write final approval E0 means attested"
   }
 }

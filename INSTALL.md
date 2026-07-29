@@ -53,6 +53,21 @@ cp portable/AGENTS.md /path/to/repo/AGENTS.md
 Codex reads `AGENTS.md` from the repository root automatically. Merge if one
 already exists.
 
+## Required operating-team appendix
+
+All four platforms must also load `portable/AEGIS_OPERATING_TEAM.md`. Append or
+merge its contents into the same repository or project instruction context used
+above:
+
+- Claude: include it with the AEGIS skill or project instructions.
+- Claude Code: merge it into the repository `CLAUDE.md`.
+- ChatGPT: paste it after the project instructions.
+- Codex: merge it into the repository `AGENTS.md`.
+
+Keep the stricter rule wherever an existing repository instruction conflicts.
+The appendix defines role IDs and authority boundaries; loading only the core
+doctrine does not install the coordinated operating team.
+
 ---
 
 ## Keeping four copies in sync

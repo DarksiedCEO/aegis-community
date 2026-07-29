@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "canonical_source": "aegis/SKILL.md",
+  "shared_role_surface": "portable/AEGIS_OPERATING_TEAM.md",
+  "platforms": {
+    "codex": ["portable/AGENTS.md", "portable/AEGIS_OPERATING_TEAM.md"],
+    "chatgpt": ["portable/AEGIS_CHATGPT_PROJECT_INSTRUCTIONS.md", "portable/AEGIS_OPERATING_TEAM.md"],
+    "claude": ["aegis/SKILL.md", "portable/AEGIS_OPERATING_TEAM.md"],
+    "claude-code": ["claude-code/CLAUDE.md", "claude-code/commands/aegis.md", "portable/AEGIS_OPERATING_TEAM.md"]
+  },
+  "role_ids": [
+    "project-manager",
+    "blueprint-compiler",
+    "completion-controller",
+    "drift-sentinel",
+    "repository-integrity-guardian",
+    "test-authenticity-guardian",
+    "evidence-truth-guardian",
+    "aegis"
+  ],
+  "evidence_levels": ["E0", "E1", "E2", "E3", "E4", "E5"],
+  "truth_labels": [
+    "ASSERTED",
+    "OBSERVED",
+    "REPRODUCED",
+    "INDEPENDENTLY_REPRODUCED",
+    "ATTESTED",
+    "UNVERIFIED"
+  ],
+  "verdicts": ["CERTIFIED", "CONDITIONAL", "NOT_CERTIFIED", "INSUFFICIENT_EVIDENCE", "REFUSED"],
+  "human_authority": [
+    "scope",
+    "merge",
+    "release",
+    "destructive-action",
+    "external-write",
+    "final approval"
+  ],
+  "prohibited_phrases": [
+    "agent may override human approval",
+    "model may override human approval",
+    "e0 means attested",
+    "e5 means assertion"
+  ]
+}

@@ -1,14 +1,15 @@
 {
   "schema_version": "1.0.0",
   "registry_version": "1.0.0",
-  "handoff_id": "handoff-001",
+  "handoff_id": "invalid-self-review",
   "source_role": "project-manager",
+  "target_role": "project-manager",
   "subject": "commit:0123456789abcdef0123456789abcdef01234567",
-  "status": "done",
+  "status": "implemented_not_verified",
   "artifacts": [],
   "evidence": [],
   "warnings": [],
   "unresolved_risks": [],
-  "next_required_action": "",
-  "approval_required": "no"
+  "next_required_action": "Review the same role's output.",
+  "approval_required": false
 }

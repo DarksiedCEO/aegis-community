@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.0.0",
+  "subject": "main",
+  "status": "implemented_not_verified",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "owner": "project-manager",
+      "acceptance_criteria": "Pin the exact subject.",
+      "required_evidence_level": "E3",
+      "status": "implemented_not_verified"
+    }
+  ],
+  "prohibited_actions": ["claim completion"],
+  "stop_conditions": ["subject is mutable"],
+  "approval_boundaries": ["Andre retains final approval"]
+}

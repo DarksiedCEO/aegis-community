@@ -9,6 +9,7 @@
     "registry_version",
     "role_id",
     "subject",
+    "evidence_subject",
     "claim",
     "evidence_level",
     "truth_label",
@@ -17,10 +18,11 @@
     "gaps"
   ],
   "properties": {
-    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
-    "registry_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "registry_version": {"type": "string", "const": "1.0.0"},
     "role_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-    "subject": {"type": "string", "minLength": 1},
+    "subject": {"type": "string", "pattern": "^(?:commit:[0-9a-f]{40}|sha256:[0-9a-f]{64})$"},
+    "evidence_subject": {"type": "string", "pattern": "^(?:commit:[0-9a-f]{40}|sha256:[0-9a-f]{64})$"},
     "claim": {"type": "string", "minLength": 1},
     "evidence_level": {"enum": ["E0", "E1", "E2", "E3", "E4", "E5"]},
     "truth_label": {
@@ -28,6 +30,7 @@
     },
     "producer": {"type": "string", "minLength": 1},
     "observed_at": {"type": "string", "format": "date-time"},
+    "subject_changed_at": {"type": "string", "format": "date-time"},
     "artifacts": {
       "type": "array",
       "items": {"type": "string", "minLength": 1},

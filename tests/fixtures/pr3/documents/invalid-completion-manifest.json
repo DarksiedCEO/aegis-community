@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "registry_version": "1.0.0",
-  "subject": "commit:abc123",
+  "subject": "commit:0123456789abcdef0123456789abcdef01234567",
   "status": "closed",
   "requirements": [],
   "prohibited_actions": [],

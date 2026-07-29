@@ -2,18 +2,18 @@
   "schema_version": "1.0.0",
   "registry_version": "1.0.0",
   "subject": "commit:0123456789abcdef0123456789abcdef01234567",
-  "status": "implemented_not_verified",
+  "status": "verified",
   "requirements": [
     {
       "id": "REQ-001",
       "owner": "project-manager",
-      "acceptance_criteria": "Every work package has one owner.",
+      "acceptance_criteria": "Every verified requirement has evidence.",
       "required_evidence_level": "E3",
-      "status": "implemented_not_verified",
+      "status": "verified",
       "evidence_references": []
     }
   ],
   "prohibited_actions": ["self-certification"],
-  "stop_conditions": ["candidate revision changes"],
-  "approval_boundaries": ["Andre approves merge and release"]
+  "stop_conditions": ["evidence is missing"],
+  "approval_boundaries": ["Andre retains final approval"]
 }

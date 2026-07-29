@@ -3,12 +3,11 @@
   "registry_version": "1.0.0",
   "role_id": "evidence-truth-guardian",
   "subject": "commit:0123456789abcdef0123456789abcdef01234567",
-  "evidence_subject": "commit:0123456789abcdef0123456789abcdef01234567",
-  "claim": "The recorded command exited successfully.",
+  "evidence_subject": "commit:89abcdef0123456789abcdef0123456789abcdef",
+  "claim": "The evidence covers the candidate.",
   "evidence_level": "E3",
   "truth_label": "REPRODUCED",
   "producer": "test-authenticity-guardian",
   "observed_at": "2026-07-29T00:00:00Z",
-  "artifacts": ["evidence/raw-output.txt"],
-  "gaps": ["Independent reproduction has not occurred."]
+  "gaps": []
 }

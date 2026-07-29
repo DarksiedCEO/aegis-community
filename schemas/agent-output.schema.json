@@ -20,11 +20,11 @@
     "handoff"
   ],
   "properties": {
-    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
-    "registry_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "registry_version": {"type": "string", "const": "1.0.0"},
     "role_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
     "capability_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
-    "subject": {"type": "string", "minLength": 1},
+    "subject": {"type": "string", "pattern": "^(?:commit:[0-9a-f]{40}|sha256:[0-9a-f]{64})$"},
     "status": {
       "enum": ["planned", "blocked", "in_progress", "implemented_not_verified", "verified", "closed"]
     },
