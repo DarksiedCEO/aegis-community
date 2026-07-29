@@ -4,7 +4,7 @@
   "handoff_id": "handoff-001",
   "source_role": "project-manager",
   "target_role": "completion-controller",
-  "subject": "repo@example",
+  "subject": "commit:0123456789abcdef0123456789abcdef01234567",
   "status": "implemented_not_verified",
   "artifacts": ["artifact-001"],
   "evidence": [],

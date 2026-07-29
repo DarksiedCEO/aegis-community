@@ -15,6 +15,7 @@ from pathlib import Path
 
 ID = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 VERSION = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+$")
+SUPPORTED_VERSION = "1.0.0"
 HUMAN_ACTIONS = {
     "scope_approval",
     "merge_approval",
@@ -56,6 +57,7 @@ def load_bundle(root: Path) -> dict:
         "agents": load_json(registry / "agents.json"),
         "capabilities": load_json(registry / "capabilities.json"),
         "authority": load_json(registry / "authority-matrix.json"),
+        "registry_version": (registry / "VERSION").read_text(encoding="utf-8").strip(),
         "available_contracts": [
             str(path.relative_to(root))
             for path in root.rglob("*")
@@ -90,6 +92,10 @@ def apply_fixture(bundle: dict, fixture_path: Path) -> dict:
             result["capabilities"]["capabilities"] = []
         elif op == "duplicate_owner":
             result["capabilities"]["capabilities"][1]["owner"] = result["capabilities"]["capabilities"][0]["owner"]
+        elif op == "duplicate_alias":
+            result["capabilities"]["capabilities"][1]["aliases"].append(
+                result["capabilities"]["capabilities"][0]["aliases"][0]
+            )
         elif op == "unknown_owner":
             result["capabilities"]["capabilities"][0]["owner"] = "unknown-role"
         elif op == "missing_contract":
@@ -101,6 +107,8 @@ def apply_fixture(bundle: dict, fixture_path: Path) -> dict:
             result["authority"]["human_authority"]["exclusive_actions"].remove(operation["action"])
         elif op == "private_reference":
             result["community_texts"]["agents/fixture.md"] = operation["text"]
+        elif op == "registry_version_mismatch":
+            result["capabilities"]["registry_version"] = operation["value"]
         else:
             raise ValidationError(f"operation {index}: unsupported op {op!r}")
     return result
@@ -127,6 +135,8 @@ def validate_bundle(bundle: dict) -> None:
         authority["registry_version"],
     }
     require(all(isinstance(value, str) and VERSION.fullmatch(value) for value in versions), "versions must be semver")
+    require(bundle["registry_version"] == SUPPORTED_VERSION, "registry/VERSION must identify the supported registry version")
+    require(versions == {bundle["registry_version"]}, "registry version mismatch")
     require(agents["roles"], "agent registry must not be empty")
     require(capabilities["capabilities"], "capability registry must not be empty")
 
@@ -147,6 +157,7 @@ def validate_bundle(bundle: dict) -> None:
 
     capability_ids: list[str] = []
     owners: list[str] = []
+    aliases: list[str] = []
     for index, capability in enumerate(capabilities["capabilities"]):
         exact_keys(capability, {"id", "owner", "aliases"}, f"capabilities[{index}]")
         require(isinstance(capability["id"], str) and ID.fullmatch(capability["id"]), f"capabilities[{index}]: invalid id")
@@ -155,8 +166,11 @@ def validate_bundle(bundle: dict) -> None:
         require(len(capability["aliases"]) == len(set(capability["aliases"])), f"capabilities[{index}]: duplicate alias")
         capability_ids.append(capability["id"])
         owners.append(capability["owner"])
+        aliases.extend(alias.casefold() for alias in capability["aliases"])
     require(len(capability_ids) == len(set(capability_ids)), "duplicate capability IDs")
     require(len(owners) == len(set(owners)), "duplicate capability ownership")
+    require(len(aliases) == len(set(aliases)), "duplicate canonical capability aliases")
+    require(not set(aliases).intersection(item.casefold() for item in capability_ids), "capability alias collides with canonical ID")
     require(set(owners) == set(role_ids), "every role must own exactly one canonical capability")
 
     exact_keys(authority["human_authority"], {"id", "exclusive_actions"}, "human authority")

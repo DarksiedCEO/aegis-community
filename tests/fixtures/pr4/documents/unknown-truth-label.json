@@ -4,10 +4,10 @@
   "role_id": "evidence-truth-guardian",
   "subject": "commit:0123456789abcdef0123456789abcdef01234567",
   "evidence_subject": "commit:0123456789abcdef0123456789abcdef01234567",
-  "claim": "Unsupported claim.",
-  "evidence_level": "E7",
-  "truth_label": "CERTAIN",
-  "producer": "unknown",
-  "observed_at": "not-a-date",
+  "claim": "The label is canonical.",
+  "evidence_level": "E1",
+  "truth_label": "PROBABLY_TRUE",
+  "producer": "evidence-truth-guardian",
+  "observed_at": "2026-07-29T00:00:00Z",
   "gaps": []
 }

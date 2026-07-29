@@ -1,14 +1,15 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "registry_version": "1.0.0",
-  "handoff_id": "handoff-001",
+  "handoff_id": "version-mismatch",
   "source_role": "project-manager",
+  "target_role": "completion-controller",
   "subject": "commit:0123456789abcdef0123456789abcdef01234567",
-  "status": "done",
+  "status": "blocked",
   "artifacts": [],
   "evidence": [],
   "warnings": [],
   "unresolved_risks": [],
-  "next_required_action": "",
-  "approval_required": "no"
+  "next_required_action": "Use a supported schema.",
+  "approval_required": false
 }
